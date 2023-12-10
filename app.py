@@ -9,7 +9,7 @@ from datetime import datetime
 from fastapi.requests import Request
 
 app = FastAPI()
-cred = credentials.Certificate("./serviceAccountKey.json")
+cred = credentials.Certificate("/etc/secrets/serviceAccountKey")
 firebase = firebase_admin.initialize_app(cred)
 pb = pyrebase.initialize_app(json.load(open('firebase_config.json')))
 db = firestore.client()
